@@ -2,13 +2,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
 import {
-    Dimensions,
-    SafeAreaView,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View
+  Dimensions,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
 import { COLORS, FONTS } from '../../constants/theme';
 
@@ -153,7 +153,10 @@ export default function HomeScreen() {
               key={link.id}
               style={styles.quickLink}
               onPress={() => {
-                if (link.id === 'dashboard') router.push('/(main)/dashboard');
+                if (link.id === 'dashboard') router.push('/main/dashboard');
+                else if (link.id === 'invoice') router.push('/main/invoice');
+                else if (link.id === 'complaints') router.push('/main/complaints');
+                else if (link.id === 'statement') router.push('/main/statement');
               }}
             >
               <View style={styles.quickLinkIcon}>

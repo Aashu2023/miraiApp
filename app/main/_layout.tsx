@@ -7,6 +7,12 @@ function TabBarIcon({ name, color }: { name: any; color: string }) {
   return <Ionicons name={name} size={24} color={color} />;
 }
 
+// Screens that should be HIDDEN from the tab bar (accessed via Home or More)
+const HIDDEN_SCREENS = [
+  'dashboard', 'invoice', 'statement', 'complaints',
+  'purchase', 'scheme',
+];
+
 export default function MainLayout() {
   return (
     <Tabs
@@ -23,6 +29,7 @@ export default function MainLayout() {
         tabBarLabelStyle: { fontFamily: FONTS.medium, fontSize: 11 },
       }}
     >
+      {/* ── Visible Tab Bar screens (5 only) ── */}
       <Tabs.Screen
         name="home"
         options={{
@@ -62,6 +69,15 @@ export default function MainLayout() {
           tabBarIcon: ({ color }) => <TabBarIcon name="reorder-three-outline" color={color} />,
         }}
       />
+
+      {/* ── Hidden screens — no tab bar entry ── */}
+      {HIDDEN_SCREENS.map(name => (
+        <Tabs.Screen
+          key={name}
+          name={name}
+          options={{ href: null }}
+        />
+      ))}
     </Tabs>
   );
 }
