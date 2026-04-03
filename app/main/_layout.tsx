@@ -10,7 +10,7 @@ function TabBarIcon({ name, color }: { name: any; color: string }) {
 // Screens that should be HIDDEN from the tab bar (accessed via Home or More)
 const HIDDEN_SCREENS = [
   'dashboard', 'invoice', 'statement', 'complaints',
-  'purchase', 'scheme',
+  'purchase', 'scheme', 'notifications', 'settings',
 ];
 
 export default function MainLayout() {
