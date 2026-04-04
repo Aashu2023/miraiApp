@@ -101,17 +101,25 @@ export default function ThemeScreen() {
         </Text>
 
         <View style={styles.colorGrid}>
-          {ACCENT_COLORS.map(color => (
-            <TouchableOpacity
-              key={color}
-              style={[styles.colorSwatch, { backgroundColor: color }]}
-              onPress={() => setAccentColor(color)}
-            >
-              {accentColor === color && (
-                <Ionicons name="checkmark" size={16} color="#fff" />
-              )}
-            </TouchableOpacity>
-          ))}
+          {ACCENT_COLORS.map(color => {
+            const isSelected = accentColor === color;
+            return (
+              <TouchableOpacity
+                key={color}
+                style={[
+                  styles.colorSwatch,
+                  { backgroundColor: color },
+                  isSelected && styles.colorSwatchSelected,
+                ]}
+                onPress={() => setAccentColor(color)}
+                activeOpacity={0.75}
+              >
+                {isSelected && (
+                  <Ionicons name="checkmark" size={16} color="#fff" />
+                )}
+              </TouchableOpacity>
+            );
+          })}
         </View>
 
         <TouchableOpacity
@@ -225,6 +233,15 @@ const styles = StyleSheet.create({
     width: 46, height: 46,
     borderRadius: 10,
     justifyContent: 'center', alignItems: 'center',
+  },
+  colorSwatchSelected: {
+    borderWidth: 3,
+    borderColor: '#fff',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 6,
   },
 
   btnNext: {
