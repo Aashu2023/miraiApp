@@ -2,25 +2,47 @@
   "expo": {
     "name": "Mirai",
     "slug": "miraiapp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "userInterfaceStyle": "dark",
+    "userInterfaceStyle": "automatic",
     "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
       "backgroundColor": "#FFC107"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.nipponpaint.mirai"
     },
     "android": {
       "adaptiveIcon": {
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFC107"
       },
-      "package": "com.nipponpaint.mirai"
+      "package": "com.nipponpaint.mirai",
+      "versionCode": 2
     },
-    "plugins": ["expo-router"],
-    "scheme": "mirai"
+    "plugins": [
+      "expo-router"
+    ],
+    "scheme": "mirai",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "4b8784a7-16ef-487f-a3e9-dfe9fa44ce82"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4b8784a7-16ef-487f-a3e9-dfe9fa44ce82"
+    }
   }
 }
